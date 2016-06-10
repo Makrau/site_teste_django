@@ -27,5 +27,5 @@ urlpatterns = [
     url(r'^demo/(?P<arg1>\d+)/(?P<arg2>\d+)/$', demo_view),
     url(r'^poll/(?P<poll_id>\d+)/$', poll_view),
     url(r'news/create_news/$', create_news),
-    url(r'', include('news.urls'))
+    url(r'', include('news.urls')),
 ]

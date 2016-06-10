@@ -1,28 +1,13 @@
-<html>
-    <head>
-        <title>Portal de notícias em Python!</title>
-    </head>
+{% extends 'news/base.html' %}
 
-    <body>
-        <div>
-            <h1>Portal de Notícias feito em Python!</h1>
-            <h2>Página Home</h2>
+{% block content %}
+    {% for item in news %}
+        <div class = "news">
+            <h1><a href="">{{ item.title }}</a></h1>
+            <h3>{{item.caption}}</h3>
+            <div class="date">
+                Publicado em: {{ item.published_date }}
+            </div>
         </div>
-
-        <div>
-            <ul>
-                {% for item in news %}
-                <div>
-                    <li>
-                        <h1><a href="">{{ item.title }}</a></h1>
-                        <h3>{{item.caption}}</h3>
-                        <p>Publicado em: {{ item.published_date }}</p>
-                    </li>
-                </div>
-                {% endfor %}
-            </ul>
-        </div>
-
-    </body>
-
-</html>
+    {% endfor %}
+{% endblock content %}

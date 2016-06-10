@@ -122,3 +122,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+#Mudar a linha abaixo quando for colocado em ambiente de produção
+STATICFILES_DIRS = ('home/makrau/Área\ de\ Trabalho/unb/das/site_teste',)
