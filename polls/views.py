@@ -4,7 +4,7 @@ from polls.models import Poll
 
 # Create your views here.
 
-def my_view(request, poll_id):
+def poll_view(request, poll_id):
     poll = Poll.objects.get(pk=poll_id)
     name = poll.name
     description = poll.description
