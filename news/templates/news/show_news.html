@@ -1,12 +1,23 @@
-<html>
-    <head>
-        <title>Portal de notícias em Python!</title>
-    </head>
+{% extends 'news/base.html' %}
 
-    <body>
-        <div>
-            <h1>Portal de Notícias feito em Python!</h1>
+<div class="content_container">
+    <div class="row">
+        <div class="col-md-8">
+            {% block content %}
+                <div class="news">
+                    {% if selected_news.published_date %}
+                        <h1>{{selected_news.title}} </h1>
+                        <h2>{{selected_news.caption}} </h2>
+
+                        <p>{{selected_news.news_text|linebreaks}}</p>
+                        
+                        <div class="date">
+                            {{selected_news.published_date}}
+                        </div>
+                    {% endif %}
+                </div>
+
+            {% endblock%}
         </div>
-    </body>
-
-</html>
+    </div>
+</div>

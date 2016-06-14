@@ -4,25 +4,21 @@
     <head>
         <title>Portal de notícias em Python!</title>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"> 
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>       
         <link rel="stylesheet" href="{% static 'css/news.css' %}">
     </head>
 
     <body>
         <div class="page-header">
-            <h1>Portal de Notícias feito em Python!</h1>
-            <h2>Página Home</h2>
+            <h1><a href="{% url 'news.views.home' %}">Portal de Notícias feito em Python!</a></h1>
+            <h2>{{page_name}}</h2>
+            
         </div>
 
-        <div class="content container">
-            <div class="row">
-                <div class="col-md-8">
-                    {% block content %}
-                    {% endblock %}
-                </div>
-            </div>
-        </div>
+        {% block content %}
+        {% endblock %}
+        
     </body>
 
 </html>
