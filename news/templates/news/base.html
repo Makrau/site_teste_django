@@ -5,16 +5,20 @@
         <title>Portal de notícias em Python!</title>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"> 
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>       
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="{% static 'css/news.css' %}">
     </head>
 
     <body>
         <div class="page-header">
+            <h2><a class="btn btn-default" href="{% url 'news.views.create_news' %}" class="top-menu">Criar Notícias!</a>   </h2>
             <h1><a href="{% url 'news.views.home' %}">Portal de Notícias feito em Python!</a></h1>
             <h2>{{page_name}}</h2>
             
         </div>
+
+        <div class="user-manager">
+            <h3><a class=
 
         {% block content %}
         {% endblock %}

@@ -11,9 +11,16 @@
     font-family: 'Open Sans Condensed', sans-serif;
 }
 
-.page-header h2, .page-header h2 a, .page-header h2 a:visited, .page-header h2 a:active {
+.page-header h2, .page-header h2 a:visited, .page-header h2 a:active {
     color: #A2A3A8;
     font-size: 24pt;
+    text-decoration: none;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.page-header h2 a {
+    color:#4453F2;
+    font-size: 12pt;
     text-decoration: none;
     font-family: 'Open Sans Condensed', sans-serif;
 }
@@ -38,6 +45,12 @@
 .news h2{
     color:#4453F2;
     font-size: 24pt;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.news h2 a{
+    color:#4453F2;
+    font-size: 12pt;
     font-family: 'Open Sans Condensed', sans-serif;
 }
 

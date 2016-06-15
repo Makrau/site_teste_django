@@ -6,6 +6,8 @@
             {% block content %}
                 <div class="news">
                     {% if selected_news.published_date %}
+                        <h2><a class="btn btn-default" href="{% url 'edit_news' pk=selected_news.pk %}">
+                        Editar Noticia</a></h2>
                         <h1>{{selected_news.title}} </h1>
                         <h2>{{selected_news.caption}} </h2>
 
