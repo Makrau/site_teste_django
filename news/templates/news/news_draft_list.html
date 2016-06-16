@@ -1,0 +1,11 @@
+{% extends 'news/base.html' %}
+
+{% block  content %}
+    {% for news in news_list %}
+        <div class="news">
+            <h1><a href="{% url 'news.views.show_news' pk=news.pk %}">{{news.title}}</a></h1>
+            <h2> {{news.caption}} </h2>
+            <p> Criada em: {{news.created_date}}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

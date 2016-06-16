@@ -1,25 +1,28 @@
 {% extends 'news/base.html' %}
 
 <div class="content_container">
-    <div class="row">
-        <div class="col-md-8">
-            {% block content %}
-                <div class="news">
-                    {% if selected_news.published_date %}
-                        <h2><a class="btn btn-default" href="{% url 'edit_news' pk=selected_news.pk %}">
-                        Editar Noticia</a></h2>
-                        <h1>{{selected_news.title}} </h1>
-                        <h2>{{selected_news.caption}} </h2>
+    {% block content %}
+        <div class="news">
+            <div class="news-options">
+                <a  href="{% url 'news.views.edit_news' pk=selected_news.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+                <a href="{% url 'news.views.remove_news' pk=selected_news.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+            </div>
 
-                        <p>{{selected_news.news_text|linebreaks}}</p>
-                        
-                        <div class="date">
-                            {{selected_news.published_date}}
-                        </div>
-                    {% endif %}
-                </div>
+            <h1>{{selected_news.title}} </h1>
+            <h2>{{selected_news.caption}} </h2>
 
-            {% endblock%}
+            <p>{{selected_news.news_text|linebreaks}}</p>
+            
+            {% if selected_news.published_date %}
+            <div class="date">
+                Publicada em: {{selected_news.published_date}}
+                <br>
+                Autor: {{selected_news.author}}
+            </div>
+            {% else %}
+                <a class="btn btn-default" href="{% url 'news.views.publish_news' pk=selected_news.pk %}">Publicar a Notícia</a>
+            {% endif %}
         </div>
-    </div>
+
+    {% endblock%}
 </div>

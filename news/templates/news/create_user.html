@@ -1,0 +1,13 @@
+{% extends 'news/base.html' %}
+
+{% block content %}
+    <div class ="create_user">
+        <h1>Preencha os campos abaixos com as suas informações de conta</h1>
+
+        <form method="POST" class="user-form">{% csrf_token %}
+            {{ user_form.as_p }}
+            <button type="submit" class="save btn btn-default">{{button_name}}</button>
+
+        </form>
+    </div>
+{% endblock %}

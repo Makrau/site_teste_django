@@ -1,0 +1,17 @@
+{% extends 'news/base.html' %}
+
+{% block content %}
+    <div class ="login">
+        <h1>Preencha os campos abaixos com as suas informações de conta</h1>
+
+        <form id="login_form" method="POST" action="news/user_login">
+            {% csrf_token %}
+            Username: <input type="text" name="username" value="" size="50" />
+            <br />
+            Password: <input type="password" name="password" value="" size="50" />
+            <br />
+
+            <button type="submit" class="save btn btn-default">{{button_name}}</button>
+        </form>
+    </div>
+{% endblock %}

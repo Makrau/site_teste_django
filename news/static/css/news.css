@@ -25,9 +25,16 @@
     font-family: 'Open Sans Condensed', sans-serif;
 }
 
+.page-header h3 a {
+    color:#4453F2;
+    font-size: 12pt;
+    text-decoration: none;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
 .news_on_home h1 a{
     color:#07117A;
-    font-size: 24pt;
+    font-size: 32pt;
     font-family: 'Open Sans Condensed', sans-serif;
 }
 
@@ -36,7 +43,7 @@
     font-family: 'Open Sans Condensed', sans-serif;
 }
 
-.news h1{
+.news h1, h1 a{
     color:#07117A;
     font-size: 40pt;
     font-family: 'Open Sans Condensed', sans-serif;
@@ -54,13 +61,51 @@
     font-family: 'Open Sans Condensed', sans-serif;
 }
 
+.news h3 a {
+    color:#4453F2;
+    font-size: 12pt;
+    text-decoration: none;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
 .news p{
     color:#000000;
     font-size: 18pt;
     font-family: 'Open Sans Condensed', sans-serif;
 }
 
+.news {
+    margin-bottom: 70px;
+}
+
+.news_on_home {
+    margin-bottom: 70px;
+}
+
+.news-options a{
+    margin-right: 20px;
+    float: right;
+}
+
+.create_news h1 {
+    color:#000000;
+    font-size: 40pt;
+    font-family: 'Open Sans Condensed', sans-serif;
+
+}
+
 body {
     padding-left: 25px;
+}
+
+.top-menu, .top-menu:hover, .top-menu:visited {
+    color: #ffffff;
+    float: right;
+    font-size: 26pt;
+    margin-right: 20px;
+}
+
+.news-form textarea, .news-form input {
+    width: 100%;
 }
 
