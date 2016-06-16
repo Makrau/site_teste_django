@@ -10,5 +10,5 @@ urlpatterns = [
     url(r'^news/(?P<pk>\d+)/publish_news/$', views.publish_news, name='publish_news'),
     url(r'^news/(?P<pk>\d+)/remove_news/$', views.remove_news, name='remove_news'),
     url(r'^user/create_user/$', views.create_user, name='create_user'),
-    url(r'^login/$', views.user_login, name='user_login'),
+    # url(r'^login/$', views.user_login, name='user_login'),
 ]

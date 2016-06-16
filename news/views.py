@@ -130,24 +130,3 @@ def create_user(request):
     }
 
     return render(request, 'news/create_user.html', information)
-
-def user_login(request):
-    if request.method == "POST":
-        username = request.POST['username']
-        password = request.POST['password']
-
-        user = authenticate(username=username, password=password)
-
-        if user:
-            if user.is_active:
-                login(request, user)
-                return redirect('news.views,home')
-
-            else:
-                return HttpResponse("Conta desativada")
-
-        else:
-            return HttpResponse("Nome de usuário ou senha inválidos!.")
-    else:
-        return render(request, 'login.html')
-
