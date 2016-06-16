@@ -32,13 +32,13 @@
     font-family: 'Open Sans Condensed', sans-serif;
 }
 
-.news_on_home h1 a{
+.news-default h1, h1 a{
     color:#07117A;
     font-size: 32pt;
     font-family: 'Open Sans Condensed', sans-serif;
 }
 
-.news_on_home h3{
+.news-default h3{
     font-size: 20pt;
     font-family: 'Open Sans Condensed', sans-serif;
 }
@@ -78,7 +78,7 @@
     margin-bottom: 70px;
 }
 
-.news_on_home {
+.news-default {
     margin-bottom: 70px;
 }
 
@@ -109,3 +109,35 @@ body {
     width: 100%;
 }
 
+.news-sport h1 a{
+    color:#189602;
+    font-size: 32pt;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.news-sport h3{
+    font-size: 20pt;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.news-sport {
+    margin-bottom: 70px;
+}
+
+
+.news-entertainment h1 a{
+    color:#E8E51A;
+    font-size: 32pt;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.news-entertainment h3{
+    font-size: 20pt;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.news-entertainment {
+    margin-bottom: 70px;
+}
+
+189602

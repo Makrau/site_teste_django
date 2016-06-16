@@ -5,10 +5,8 @@
         <div class="news">
         {% if user.is_authenticated %}
             <div class="news-options">
-                {% if user.get_username == selected_news.author %}
                     <a  href="{% url 'news.views.edit_news' pk=selected_news.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
                     <a href="{% url 'news.views.remove_news' pk=selected_news.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
-                {% endif %}
             </div>
         {% endif %}
 
@@ -24,9 +22,7 @@
                 Autor: {{selected_news.author}}
             </div>
             {% else %}
-                {% if user.get_username == selected_news.author %}
                 <a class="btn btn-default" href="{% url 'news.views.publish_news' pk=selected_news.pk %}">Publicar a Notícia</a>
-                {% endif %}
             {% endif %}
         </div>
 

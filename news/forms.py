@@ -6,7 +6,7 @@ class NewsForm(forms.ModelForm):
 
     class Meta:
         model = News
-        fields = ('title', 'caption', 'news_text')
+        fields = ('title', 'caption', 'news_text', 'news_type')
         # widgets = {
         #     'title': forms.TextInput(attrs={'size' : 80}),
         #     'caption': forms.TextInput(attrs={'size' : 80}),

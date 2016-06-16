@@ -3,15 +3,46 @@
     <div class="row">
         <div class="col-md-3">
             {% block content %}
-                {% for item in news %}
-                    <div class = "news_on_home">
+
+            <div class = "news-default">
+                <h1>Notícias Gerais!</h1>
+                    {% for item in news %}
+                    {% if item.news_type == 'Gerais' %}
                         <h1><a href="{% url 'news.views.show_news' pk=item.pk %}">{{ item.title }}</a></h1>
                         <h3>{{item.caption}}</h3>
                         <div class="date">
                             Publicado em: {{ item.published_date }}
                         </div>
+                    {% endif %}
+                    {% endfor %}
+             </div>
+
+             <div class = "news-sport">
+                <h1>Notícias de Esporte!</h1>
+                {% for item in news %}
+                {% if item.news_type == 'Esporte' %}
+                    <h1><a href="{% url 'news.views.show_news' pk=item.pk %}">{{ item.title }}</a></h1>
+                    <h3>{{item.caption}}</h3>
+                    <div class="date">
+                        Publicado em: {{ item.published_date }}
                     </div>
+                {% endif %}
                 {% endfor %}
+            </div>
+
+            <div class = "news-entertainment">
+                <h1>Notícias de Entreterimento!</h1>
+                {% for item in news %}
+                {% if item.news_type == 'Entreterimento' %}
+                    <h1><a href="{% url 'news.views.show_news' pk=item.pk %}">{{ item.title }}</a></h1>
+                    <h3>{{item.caption}}</h3>
+                    <div class="date">
+                        Publicado em: {{ item.published_date }}
+                    </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+
             {% endblock content %}
         </div>
     </div>
