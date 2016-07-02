@@ -11,14 +11,14 @@
 
     <body>
         <div class="page-header">
-
             {% if user.is_authenticated %}
-                <h3><a href="{% url 'news.views.create_news' %}"  class="top-menu"><span class="btn btn-default">Criar Notícias</span></a></h3>
-                <h3><a href="{% url 'news_draft_list' %}" class="top-menu"><span class="btn btn-default">Publicar Notícias</span></a></h3>
+                <h3><a href="{% url 'news.views.create_news' %}"class="top-menu"><span class="btn btn-default">Criar Notícias</span></a></h3>
+                <h3><a href="{% url 'news_draft_list' %}"class="top-menu"><span class="btn btn-default">Publicar Notícias</span></a></h3>
+                <h3><a href="{% url 'news.views.notifications' %}"class="top-menu"><span class="btn btn-default">Notificações</span></a></h3>
                 <p class="top-menu">Bem-vindo {{ user.username }}<small>(<a href="{% url 'logout' %}">Sair</a>)</small></p>
             {% else %}
-                <h3><a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock">Realizar Login</span></a></h3>
-                <h3><a href="{% url 'create_user' %}" class="top-menu"><span class="btn btn-default">Criar Usuário</span></a></h3>
+                <h3><a href="{% url 'login' %}"class="top-menu"><span class="glyphicon glyphicon-lock">Realizar Login</span></a></h3>
+                <h3><a href="{% url 'create_user' %}"class="top-menu"><span class="btn btn-default">Criar Usuário</span></a></h3>
             {% endif %}
 
             <h1><a href="{% url 'news.views.home' %}">Portal de Notícias feito em Python!</a></h1>

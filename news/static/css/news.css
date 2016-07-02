@@ -91,8 +91,14 @@
     color:#000000;
     font-size: 40pt;
     font-family: 'Open Sans Condensed', sans-serif;
-
 }
+
+.create_comment h1 {
+    color:#000000;
+    font-size: 40pt;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
 
 body {
     padding-left: 25px;
@@ -106,6 +112,10 @@ body {
 }
 
 .news-form textarea, .news-form input {
+    width: 100%;
+}
+
+.comment-form textarea, .comment-form input {
     width: 100%;
 }
 
@@ -138,6 +148,10 @@ body {
 
 .news-entertainment {
     margin-bottom: 70px;
+}
+
+.comment {
+    margin: 20px 0px 20px 20px;
 }
 
 189602

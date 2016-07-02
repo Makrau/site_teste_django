@@ -1,5 +1,5 @@
 from django import forms
-from .models import News
+from .models import News, Comment
 from django.contrib.auth.models import User
 
 class NewsForm(forms.ModelForm):
@@ -7,15 +7,16 @@ class NewsForm(forms.ModelForm):
     class Meta:
         model = News
         fields = ('title', 'caption', 'news_text', 'news_type')
-        # widgets = {
-        #     'title': forms.TextInput(attrs={'size' : 80}),
-        #     'caption': forms.TextInput(attrs={'size' : 80}),
-        #     'news_text' : forms.Textarea(attrs={'cols' : 80, 'rows' : 20})
-        # }
 
 class UserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())
     class Meta:
         model = User
         fields = ('username', 'email', 'password')
+
+class CommentForm(forms.ModelForm):
+
+    class Meta:
+        model = Comment
+        fields = ('author', 'comment_text')
 

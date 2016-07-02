@@ -1,0 +1,18 @@
+{% extends 'news/base.html' %}
+<div class="content_container">
+    <div class="row">
+        <div class="col-md-3">
+            {% block content %}
+
+            <div class = "notifications">
+                <h1>Suas Notificações</h1>
+                    {% for item in user_notifications %}
+                        Comentário na sua notícia:
+                        <h3><a href="{% url 'news.views.show_news' pk=item.news.pk %}">{{ item.news.title }}</a></h1>
+                    {% endfor %}
+             </div>
+
+             {% endblock content %}
+        </div>
+    </div>
+</div>

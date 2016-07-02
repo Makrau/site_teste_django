@@ -6,40 +6,37 @@
 
             <div class = "news-default">
                 <h1>Notícias Gerais!</h1>
-                    {% for item in news %}
-                    {% if item.news_type == 'Gerais' %}
+                    {% for item in general_news %}
                         <h1><a href="{% url 'news.views.show_news' pk=item.pk %}">{{ item.title }}</a></h1>
                         <h3>{{item.caption}}</h3>
                         <div class="date">
                             Publicado em: {{ item.published_date }}
                         </div>
-                    {% endif %}
+                        <a href="{% url 'news.views.show_news' pk=item.pk %}">Comentários: {{ item.comments.count }}</a>
                     {% endfor %}
              </div>
 
              <div class = "news-sport">
                 <h1>Notícias de Esporte!</h1>
-                {% for item in news %}
-                {% if item.news_type == 'Esporte' %}
+                {% for item in sport_news %}
                     <h1><a href="{% url 'news.views.show_news' pk=item.pk %}">{{ item.title }}</a></h1>
                     <h3>{{item.caption}}</h3>
                     <div class="date">
                         Publicado em: {{ item.published_date }}
                     </div>
-                {% endif %}
+                    <a href="{% url 'news.views.show_news' pk=item.pk %}">Comentários: {{ item.comments.count }}</a>
                 {% endfor %}
             </div>
 
             <div class = "news-entertainment">
                 <h1>Notícias de Entreterimento!</h1>
-                {% for item in news %}
-                {% if item.news_type == 'Entreterimento' %}
+                {% for item in entertaiment_news %}
                     <h1><a href="{% url 'news.views.show_news' pk=item.pk %}">{{ item.title }}</a></h1>
                     <h3>{{item.caption}}</h3>
                     <div class="date">
                         Publicado em: {{ item.published_date }}
                     </div>
-                {% endif %}
+                    <a href="{% url 'news.views.show_news' pk=item.pk %}">Comentários: {{ item.comments.count }}</a>
                 {% endfor %}
             </div>
 

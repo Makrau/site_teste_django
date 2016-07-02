@@ -1,15 +1,14 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django import http
 from django.http import HttpResponseRedirect, HttpResponse
-from news.models import News
+from news.models import News, Comment, Notification
 from django.utils import timezone 
 from .forms import NewsForm
 from .forms import UserForm
+from .forms import CommentForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-
-
 
 # Create your views here.
 
@@ -23,7 +22,7 @@ def edit_news(request, pk):
         if news_form.is_valid():
             news = news_form.save(commit=False)
             news.author = request.user
-            news.published_date = timezone.now()
+            #news.published_date = timezone.now()
             news.save()
             return redirect('news.views.show_news', pk=news.pk)
 
@@ -50,15 +49,34 @@ def show_news(request, pk):
     return render(request, 'news/show_news.html', information)
 
 def home(request):
-    recent_news = News.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+    general_news = News.objects.filter(published_date__lte=timezone.now(), news_type="Gerais").order_by('-published_date')
+    sport_news = News.objects.filter(published_date__lte=timezone.now(), news_type="Esporte").order_by('-published_date')
+    entertaiment_news = News.objects.filter(published_date__lte=timezone.now(), news_type="Entreterimento").order_by('-published_date')
+
     page_name = "Página Inicial"
 
     information = {
-        'news' : recent_news,
-        'page_name' : page_name
+        'general_news' : general_news,
+        'sport_news' : sport_news,
+        'entertaiment_news' : entertaiment_news,
+        'page_name' : page_name,
     }
 
     return render(request, 'news/home.html', information)
+
+@login_required
+def notifications(request):
+    current_user = request.user
+    user_notifications = Notification.objects.filter(user=current_user)
+    page_name = "Notificações"
+
+    information = {
+    'user_notifications' : user_notifications,
+    'page_name' : page_name,
+    }
+
+    return render(request, 'news/notifications.html', information)
+
 @login_required
 def news_draft_list(request):
     news_list = News.objects.filter(published_date__isnull=True).order_by('-created_date')
@@ -130,3 +148,21 @@ def create_user(request):
     }
 
     return render(request, 'news/create_user.html', information)
+
+def create_comment(request, pk):
+    news = get_object_or_404(News, pk=pk)
+
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.news = news
+            comment.save()
+
+            return redirect('news.views.show_news', pk=news.pk)
+
+    else:
+        form = CommentForm()
+
+    return render(request, 'news/create_comment.html', {'form' : form})

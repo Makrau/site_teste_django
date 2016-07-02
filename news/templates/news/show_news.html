@@ -26,5 +26,22 @@
             {% endif %}
         </div>
 
+        <a class="btn btn-default" href="{% url 'create_comment' pk=selected_news.pk %}">Comentar a Noticia</a>
+        <br>
+        <br>
+        Comentários:
+        <br>
+
+        {% for comment in selected_news.comments.all %}
+            <div class="comment">
+                <strong>{{ comment.author }}</strong>
+                <p>{{ comment.comment_text|linebreaks }}</p>
+                <div class="date">{{  comment.create_date }}</div>
+            </div>
+
+        {% empty %}
+            <p>Seja o primeiro a comentar algo sobre esta notícia! </p>
+        {% endfor %}
+
     {% endblock%}
 </div>
