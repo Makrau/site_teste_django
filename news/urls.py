@@ -12,4 +12,5 @@ urlpatterns = [
     url(r'^news/(?P<pk>\d+)/remove_news/$', views.remove_news, name='remove_news'),
     url(r'^user/create_user/$', views.create_user, name='create_user'),
     url(r'^news/(?P<pk>\d+)/comment/$', views.create_comment, name='create_comment'),
+    url(r'^notify/(?P<news_pk>\d+)/(?P<username>.+)$', views.notify, name='notify'),
 ]

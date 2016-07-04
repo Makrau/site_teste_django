@@ -3,6 +3,7 @@
 <div class="content_container">
     {% block content %}
         <div class="news">
+
         {% if user.is_authenticated %}
             <div class="news-options">
                     <a  href="{% url 'news.views.edit_news' pk=selected_news.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>

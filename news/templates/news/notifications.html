@@ -7,8 +7,9 @@
             <div class = "notifications">
                 <h1>Suas Notificações</h1>
                     {% for item in user_notifications %}
-                        Comentário na sua notícia:
+                        {{item.comment.author}} comentou em sua notícia!
                         <h3><a href="{% url 'news.views.show_news' pk=item.news.pk %}">{{ item.news.title }}</a></h1>
+                        <br><br>
                     {% endfor %}
              </div>
 

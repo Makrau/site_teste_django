@@ -41,11 +41,13 @@ def edit_news(request, pk):
 def show_news(request, pk):
     selected_news = get_object_or_404(News, pk=pk)
     page_name = "Página de Notícia"
+    current_user = request.user
 
     information = {
         'selected_news' : selected_news,
         'page_name' : page_name
     }
+    notify(request, pk, current_user.username)
     return render(request, 'news/show_news.html', information)
 
 def home(request):
@@ -67,7 +69,7 @@ def home(request):
 @login_required
 def notifications(request):
     current_user = request.user
-    user_notifications = Notification.objects.filter(user=current_user)
+    user_notifications = Notification.objects.filter(user=current_user).order_by('-created_date')
     page_name = "Notificações"
 
     information = {
@@ -94,12 +96,14 @@ def publish_news(request, pk):
     news.publish()
 
     return redirect('news.views.show_news', pk=pk)
+
 @login_required
 def remove_news(request, pk):
     news = get_object_or_404(News, pk=pk)
     news.delete()
 
     return redirect('news.views.home')
+
 @login_required
 def create_news(request):
 
@@ -166,3 +170,11 @@ def create_comment(request, pk):
         form = CommentForm()
 
     return render(request, 'news/create_comment.html', {'form' : form})
+
+def notify(request, news_pk, username):
+    news = get_object_or_404(News, pk=news_pk)
+    user= get_object_or_404(User, username=username)
+    notifications = Notification.objects.filter(news=news, user=user)
+    
+    for notification in notifications:
+        notification.notify()
